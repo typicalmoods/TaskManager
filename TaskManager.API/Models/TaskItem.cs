@@ -8,5 +8,7 @@ namespace TaskManager.API.Models
         public bool Completada { get; set; }
         public DateTime FechaCreacion { get; set; } = DateTime.Now;
         public DateTime? FechaLimite { get; set; }
+        public int? CategoryId { get; set; }
+        public Category? Category { get; set; }
     }
 }
