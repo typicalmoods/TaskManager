@@ -17,9 +17,11 @@ namespace TaskManager.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Category>>> GetAll()
+        public async Task<ActionResult> GetAll()
         {
-            return Ok(await _context.Categories.ToListAsync());
+            return Ok(await _context.Categories
+                .Select(c => new { c.Id, c.Nombre })
+                .ToListAsync());
         }
 
         [HttpPost]
